@@ -1,7 +1,7 @@
 
 
 let a = Math.floor(Math.random() * 100) + 1;
-let score = 100;
+let score = 0;
 let chance = 100;
 let timer;
 let timerDisplay = document.getElementById('timer');
@@ -13,7 +13,7 @@ const submitButton = document.querySelector('.submit-button');
 
 function updateTimer() {
     timerDisplay.textContent = score;
-    if (score === 0) {
+    if (score === 100) {
         clearInterval(timer);
         outputText.textContent = "Time's up! You didn't guess the correct number.";
         submitButton.disabled = true;
@@ -26,7 +26,7 @@ function checkGuess() {
     if (isFirstGuess) {
         // Start the timer only on the first guess
         timer = setInterval(function () {
-            score--;
+            score++;
             updateTimer();
         }, 1000);
 
